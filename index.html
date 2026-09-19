@@ -82,18 +82,18 @@
 <body>
   <h1>GF 地图集</h1>
   <div class="buttons">
-    <button id="btn-numbered" onclick="showImage('numbered', this)">编号区域</button>
     <button id="btn-map" onclick="showImage('map', this)">地图</button>
+    <button id="btn-numbered" onclick="showImage('numbered', this)">编号区域</button>
     <button id="btn-zones" onclick="showImage('zones', this)">分区图</button>
   </div>
   <div class="viewer">
-    <img id="display" src="numbered.jpg" alt="编号区域">
+    <img id="display" src="numbered.jpg" alt="地图">
   </div>
 
   <script>
     const images = {
-      map: { src: 'map.jpg', alt: '地图' },
-      numbered: { src: 'numbered.jpg', alt: '编号区域' },
+      map: { src: 'numbered.jpg', alt: '地图' },
+      numbered: { src: 'map.jpg', alt: '编号区域' },
       zones: { src: 'zones.jpg', alt: '分区图' }
     };
     function showImage(key, btn) {
@@ -103,7 +103,7 @@
       document.querySelectorAll('.buttons button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
-    document.getElementById('btn-numbered').classList.add('active');
+    document.getElementById('btn-map').classList.add('active');
   </script>
 </body>
 </html>
