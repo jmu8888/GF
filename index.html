@@ -37,7 +37,13 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transform-origin: 0 0;
+    touch-action: pan-x;
+    cursor: zoom-in;
+    will-change: transform;
   }
+  .slide img.zoomed { cursor: grab; }
+  .slide img.panning { cursor: grabbing; }
   .toolbar {
     position: fixed;
     bottom: 16px;
@@ -96,6 +102,136 @@
     }, { root: slider, threshold: 0.6 });
     document.querySelectorAll('.slide').forEach(s => observer.observe(s));
     setActive('slide-map');
+
+    // ---- Pinch / wheel / double-click / double-tap zoom & pan ----
+    document.querySelectorAll('.slide').forEach(slide => {
+      const img = slide.querySelector('img');
+      const minScale = 1, maxScale = 4;
+      let scale = 1, tx = 0, ty = 0;
+      const pointers = new Map();
+      let pinchStart = null;
+      let panStart = null;
+      let lastTapTime = 0, lastTapX = 0, lastTapY = 0;
+
+      function localPoint(clientX, clientY) {
+        const rect = slide.getBoundingClientRect();
+        return { x: clientX - rect.left, y: clientY - rect.top };
+      }
+
+      function clampTranslate() {
+        const rect = slide.getBoundingClientRect();
+        const minTx = Math.min(0, rect.width - rect.width * scale);
+        const minTy = Math.min(0, rect.height - rect.height * scale);
+        tx = Math.max(minTx, Math.min(0, tx));
+        ty = Math.max(minTy, Math.min(0, ty));
+      }
+
+      function apply() {
+        img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+        const zoomed = scale > 1.01;
+        img.classList.toggle('zoomed', zoomed);
+        img.style.touchAction = zoomed ? 'none' : 'pan-x';
+        slider.style.overflowX = zoomed ? 'hidden' : 'auto';
+      }
+
+      function zoomAt(px, py, newScale) {
+        newScale = Math.max(minScale, Math.min(maxScale, newScale));
+        const ratio = newScale / scale;
+        tx = px - (px - tx) * ratio;
+        ty = py - (py - ty) * ratio;
+        scale = newScale;
+        if (scale <= 1.01) { scale = 1; tx = 0; ty = 0; }
+        clampTranslate();
+        apply();
+      }
+
+      slide.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const p = localPoint(e.clientX, e.clientY);
+        const factor = e.deltaY < 0 ? 1.2 : 1 / 1.2;
+        zoomAt(p.x, p.y, scale * factor);
+      }, { passive: false });
+
+      img.addEventListener('dblclick', (e) => {
+        const p = localPoint(e.clientX, e.clientY);
+        zoomAt(p.x, p.y, scale > 1.01 ? 1 : 2.5);
+      });
+
+      img.addEventListener('pointerdown', (e) => {
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        try { img.setPointerCapture(e.pointerId); } catch (err) {}
+
+        if (pointers.size === 1) {
+          if (e.pointerType === 'touch') {
+            const now = Date.now();
+            const dx = Math.abs(e.clientX - lastTapX);
+            const dy = Math.abs(e.clientY - lastTapY);
+            if (now - lastTapTime < 300 && dx < 30 && dy < 30) {
+              const p = localPoint(e.clientX, e.clientY);
+              zoomAt(p.x, p.y, scale > 1.01 ? 1 : 2.5);
+              lastTapTime = 0;
+              panStart = null;
+              return;
+            }
+            lastTapTime = now;
+            lastTapX = e.clientX;
+            lastTapY = e.clientY;
+          }
+          if (scale > 1.01) {
+            panStart = { x: e.clientX, y: e.clientY, tx, ty };
+            img.classList.add('panning');
+          }
+        } else if (pointers.size === 2) {
+          panStart = null;
+          img.classList.remove('panning');
+          const pts = Array.from(pointers.values());
+          const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+          const mid = localPoint((pts[0].x + pts[1].x) / 2, (pts[0].y + pts[1].y) / 2);
+          pinchStart = { dist, midX: mid.x, midY: mid.y, scale, tx, ty };
+        }
+      });
+
+      img.addEventListener('pointermove', (e) => {
+        if (!pointers.has(e.pointerId)) return;
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+        if (pointers.size === 2 && pinchStart) {
+          const pts = Array.from(pointers.values());
+          const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+          const ratio = dist / pinchStart.dist;
+          const newScale = Math.max(minScale, Math.min(maxScale, pinchStart.scale * ratio));
+          const zratio = newScale / pinchStart.scale;
+          tx = pinchStart.midX - (pinchStart.midX - pinchStart.tx) * zratio;
+          ty = pinchStart.midY - (pinchStart.midY - pinchStart.ty) * zratio;
+          scale = newScale <= 1.01 ? 1 : newScale;
+          if (scale === 1) { tx = 0; ty = 0; }
+          clampTranslate();
+          apply();
+        } else if (pointers.size === 1 && panStart && scale > 1.01) {
+          tx = panStart.tx + (e.clientX - panStart.x);
+          ty = panStart.ty + (e.clientY - panStart.y);
+          clampTranslate();
+          apply();
+        }
+      });
+
+      function endPointer(e) {
+        pointers.delete(e.pointerId);
+        try { img.releasePointerCapture(e.pointerId); } catch (err) {}
+        img.classList.remove('panning');
+        if (pointers.size < 2) pinchStart = null;
+        if (pointers.size === 0) {
+          panStart = null;
+        } else if (pointers.size === 1 && scale > 1.01) {
+          const [remaining] = pointers.values();
+          panStart = { x: remaining.x, y: remaining.y, tx, ty };
+        }
+      }
+      img.addEventListener('pointerup', endPointer);
+      img.addEventListener('pointercancel', endPointer);
+
+      apply();
+    });
   </script>
 </body>
 </html>
