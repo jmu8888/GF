@@ -2,108 +2,100 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>GF 地图集</title>
 <style>
-  :root {
-    --bg: #f5f5f4;
-    --card-bg: #ffffff;
-    --text: #1c1917;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --border: #e7e5e4;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1c1917;
-      --card-bg: #292524;
-      --text: #f5f5f4;
-      --accent: #3b82f6;
-      --accent-hover: #60a5fa;
-      --border: #44403c;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
+  html, body {
     margin: 0;
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 16px 48px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
   }
-  h1 {
-    font-size: 1.5rem;
-    margin: 16px 0 24px;
-    text-align: center;
-  }
-  .buttons {
+  .slider {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .slider::-webkit-scrollbar { display: none; }
+  .slider { scrollbar-width: none; }
+  .slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    display: flex;
     justify-content: center;
-    margin-bottom: 28px;
-    width: 100%;
-    max-width: 720px;
+    align-items: center;
   }
-  button {
-    flex: 1 1 140px;
-    padding: 12px 20px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    background: var(--accent);
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .toolbar {
+    position: fixed;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 0 8px;
+    z-index: 10;
+  }
+  .toolbar a {
+    padding: 9px 20px;
+    border-radius: 20px;
+    background: linear-gradient(#2563eb, #1d4ed8);
     color: #fff;
-    cursor: pointer;
-    transition: background 0.15s ease;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
   }
-  button:hover { background: var(--accent-hover); }
-  button.active { background: var(--accent-hover); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }
-  .viewer {
-    width: 100%;
-    max-width: 1100px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 12px;
+  .toolbar a.active {
+    background: linear-gradient(#3b82f6, #1d4ed8);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.7);
   }
-  .viewer img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
+  .toolbar a:active { background: linear-gradient(#1d4ed8, #1e3a8a); }
 </style>
 </head>
 <body>
-  <h1>GF 地图集</h1>
-  <div class="buttons">
-    <button id="btn-map" onclick="showImage('map', this)">地图</button>
-    <button id="btn-numbered" onclick="showImage('numbered', this)">编号区域</button>
-    <button id="btn-zones" onclick="showImage('zones', this)">分区图</button>
+  <div class="slider" id="slider">
+    <div class="slide" id="slide-map"><img src="numbered.jpg" alt="地图"></div>
+    <div class="slide" id="slide-numbered"><img src="map.jpg" alt="编号区域"></div>
+    <div class="slide" id="slide-zones"><img src="zones.jpg" alt="分区图"></div>
   </div>
-  <div class="viewer">
-    <img id="display" src="numbered.jpg" alt="地图">
+  <div class="toolbar" id="toolbar">
+    <a href="#slide-map" data-slide="slide-map">地图</a>
+    <a href="#slide-numbered" data-slide="slide-numbered">编号区域</a>
+    <a href="#slide-zones" data-slide="slide-zones">分区图</a>
   </div>
 
   <script>
-    const images = {
-      map: { src: 'numbered.jpg', alt: '地图' },
-      numbered: { src: 'map.jpg', alt: '编号区域' },
-      zones: { src: 'zones.jpg', alt: '分区图' }
-    };
-    function showImage(key, btn) {
-      const img = document.getElementById('display');
-      img.src = images[key].src;
-      img.alt = images[key].alt;
-      document.querySelectorAll('.buttons button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+    const slider = document.getElementById('slider');
+    const links = document.querySelectorAll('.toolbar a');
+    function setActive(id) {
+      links.forEach(a => a.classList.toggle('active', a.dataset.slide === id));
     }
-    document.getElementById('btn-map').classList.add('active');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { root: slider, threshold: 0.6 });
+    document.querySelectorAll('.slide').forEach(s => observer.observe(s));
+    setActive('slide-map');
   </script>
 </body>
 </html>
