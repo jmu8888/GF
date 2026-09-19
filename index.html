@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GF 地图集</title>
+<style>
+  :root {
+    --bg: #f5f5f4;
+    --card-bg: #ffffff;
+    --text: #1c1917;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border: #e7e5e4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1917;
+      --card-bg: #292524;
+      --text: #f5f5f4;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --border: #44403c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 48px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin: 16px 0 24px;
+    text-align: center;
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 28px;
+    width: 100%;
+    max-width: 720px;
+  }
+  button {
+    flex: 1 1 140px;
+    padding: 12px 20px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  button:hover { background: var(--accent-hover); }
+  button.active { background: var(--accent-hover); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }
+  .viewer {
+    width: 100%;
+    max-width: 1100px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+  }
+  .viewer img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+  <h1>GF 地图集</h1>
+  <div class="buttons">
+    <button id="btn-map" onclick="showImage('map', this)">地图</button>
+    <button id="btn-numbered" onclick="showImage('numbered', this)">编号区域</button>
+    <button id="btn-zones" onclick="showImage('zones', this)">分区图</button>
+  </div>
+  <div class="viewer">
+    <img id="display" src="map.jpg" alt="地图">
+  </div>
+
+  <script>
+    const images = {
+      map: { src: 'map.jpg', alt: '地图' },
+      numbered: { src: 'numbered.jpg', alt: '编号区域' },
+      zones: { src: 'zones.jpg', alt: '分区图' }
+    };
+    function showImage(key, btn) {
+      const img = document.getElementById('display');
+      img.src = images[key].src;
+      img.alt = images[key].alt;
+      document.querySelectorAll('.buttons button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    document.getElementById('btn-map').classList.add('active');
+  </script>
+</body>
+</html>
