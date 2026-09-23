@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>厕所位置</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 100px;
+  }
+  h1 {
+    font-size: 22px;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+    margin: 0 0 20px;
+  }
+  .card {
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 0 0 20px;
+  }
+  .card h2 {
+    font-size: 17px;
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
+    margin: 0 0 10px;
+  }
+  .row {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 4px 0;
+  }
+  .label {
+    flex: 0 0 64px;
+    color: #4b5563;
+    font-weight: 600;
+  }
+  .row a { color: #1d4ed8; }
+  .card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  .toolbar {
+    position: fixed;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 8px;
+    z-index: 10;
+  }
+  .toolbar a {
+    padding: 9px 20px;
+    border-radius: 20px;
+    background: linear-gradient(#2563eb, #1d4ed8);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+  .toolbar a:active { background: linear-gradient(#1d4ed8, #1e3a8a); }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1>厕所位置</h1>
+    <p class="subtitle">Portable Toilets Reservation</p>
+
+    <div class="card">
+      <h2>① 12th St NW</h2>
+      <div class="row"><span class="label">日期</span><span>9/23 – 9/25</span></div>
+      <div class="row"><span class="label">数量</span><span>4 个</span></div>
+      <div class="row"><span class="label">地址</span><span><a href="https://maps.google.com/?q=302+12th+St+NW,+Washington,+DC+20004">302 12th St NW, Washington, DC 20004</a></span></div>
+      <div class="row"><span class="label">位置</span><span>West sidewalk on 12th Street between Constitution Ave and Pennsylvania Ave</span></div>
+      <img src="toilet1.jpg" alt="12th St NW 厕所位置" loading="lazy">
+    </div>
+
+    <div class="card">
+      <h2>② Pershing Park</h2>
+      <div class="row"><span class="label">日期</span><span>9/24 – 9/25</span></div>
+      <div class="row"><span class="label">数量</span><span>2 个</span></div>
+      <div class="row"><span class="label">地址</span><span><a href="https://maps.google.com/?q=1400+Pennsylvania+Ave+NW,+Washington,+DC+20004">1400 Pennsylvania Ave NW, Washington, DC 20004</a></span></div>
+      <div class="row"><span class="label">位置</span><span>North sidewalk on Pennsylvania Ave, between 14th and 15th Street</span></div>
+      <img src="toilet2.jpg" alt="Pershing Park 厕所位置" loading="lazy">
+    </div>
+
+    <div class="card">
+      <h2>③ 17th St NW</h2>
+      <div class="row"><span class="label">日期</span><span>9/24 – 9/25</span></div>
+      <div class="row"><span class="label">数量</span><span>4 个</span></div>
+      <div class="row"><span class="label">地址</span><span><a href="https://maps.google.com/?q=620+17th+St+NW,+Washington,+DC+20006">620 17th St NW, Washington, DC 20006</a></span></div>
+      <div class="row"><span class="label">位置</span><span>West sidewalk on 17th Street between F St and G St NW</span></div>
+      <img src="toilet3.jpg" alt="17th St NW 厕所位置" loading="lazy">
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <a href="index.html">← 返回地图集</a>
+  </div>
+</body>
+</html>
