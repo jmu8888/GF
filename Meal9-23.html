@@ -53,18 +53,6 @@
     background: #dbeafe;
     font-weight: 700;
   }
-  .toggle-btn {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: none;
-    background: #16a34a;
-    cursor: pointer;
-    padding: 0;
-  }
-  .toggle-btn.done {
-    background: #dc2626;
-  }
   .toolbar {
     position: fixed;
     bottom: 16px;
@@ -96,41 +84,27 @@
     <h1>送餐安排（9/23）</h1>
 
     <table>
-      <tr><th>车号</th><th>单位</th><th>9/23 下午</th><th>9/23 晚上</th><th>确认</th></tr>
-      <tr><td class="label">DC1</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td><td><button class="toggle-btn" data-id="DC1"></button></td></tr>
-      <tr><td class="label">DC2</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td><td><button class="toggle-btn" data-id="DC2"></button></td></tr>
-      <tr><td class="label">DC3</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td><td><button class="toggle-btn" data-id="DC3"></button></td></tr>
-      <tr><td class="label">OR1</td><td class="label">俄勒冈州（靖东升）</td><td>50</td><td>50</td><td><button class="toggle-btn" data-id="OR1"></button></td></tr>
-      <tr><td class="label">WA1</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td><td><button class="toggle-btn" data-id="WA1"></button></td></tr>
-      <tr><td class="label">WA2</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td><td><button class="toggle-btn" data-id="WA2"></button></td></tr>
-      <tr><td class="label">SF1</td><td class="label">旧金山（何孔华）</td><td>35</td><td>35</td><td><button class="toggle-btn" data-id="SF1"></button></td></tr>
-      <tr><td class="label">PAD 1-10</td><td class="label">费城全美总商会（林明华）</td><td>0</td><td>300</td><td><button class="toggle-btn" data-id="PAD1-10"></button></td></tr>
-      <tr><td class="label">临时调动</td><td class="label">陈云楷</td><td>100</td><td>100</td><td><button class="toggle-btn" data-id="temp-chenyunkai"></button></td></tr>
-      <tr><td class="label">NY临时</td><td class="label">纽约温州同乡会</td><td>16</td><td>16</td><td><button class="toggle-btn" data-id="NY-temp"></button></td></tr>
-      <tr><td class="label">MD21</td><td class="label">平台班车点（MD)</td><td>0</td><td>50</td><td><button class="toggle-btn" data-id="MD21"></button></td></tr>
-      <tr><td class="label">VA22</td><td class="label">平台班车点（VA）</td><td>28</td><td>31</td><td><button class="toggle-btn" data-id="VA22"></button></td></tr>
-      <tr><td class="label">交通自理</td><td class="label">平台注册/社团报名</td><td>41</td><td>44</td><td><button class="toggle-btn" data-id="self"></button></td></tr>
-      <tr class="summary"><td colspan="2">需求份数</td><td>495</td><td>716</td><td></td></tr>
-      <tr class="summary"><td colspan="2">预定份数</td><td>600</td><td>1000</td><td></td></tr>
+      <tr><th>车号</th><th>单位</th><th>9/23 下午</th><th>9/23 晚上</th></tr>
+      <tr><td class="label">DC1</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td></tr>
+      <tr><td class="label">DC2</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td></tr>
+      <tr><td class="label">DC3</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td></tr>
+      <tr><td class="label">OR1</td><td class="label">俄勒冈州（靖东升）</td><td>50</td><td>50</td></tr>
+      <tr><td class="label">WA1</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td></tr>
+      <tr><td class="label">WA2</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td></tr>
+      <tr><td class="label">SF1</td><td class="label">旧金山（何孔华）</td><td>35</td><td>35</td></tr>
+      <tr><td class="label">PAD 1-10</td><td class="label">费城全美总商会（林明华）</td><td>0</td><td>300</td></tr>
+      <tr><td class="label">临时调动</td><td class="label">陈云楷</td><td>100</td><td>100</td></tr>
+      <tr><td class="label">NY临时</td><td class="label">纽约温州同乡会</td><td>16</td><td>16</td></tr>
+      <tr><td class="label">MD21</td><td class="label">平台班车点（MD)</td><td>0</td><td>50</td></tr>
+      <tr><td class="label">VA22</td><td class="label">平台班车点（VA）</td><td>28</td><td>31</td></tr>
+      <tr><td class="label">交通自理</td><td class="label">平台注册/社团报名</td><td>41</td><td>44</td></tr>
+      <tr class="summary"><td colspan="2">需求份数</td><td>495</td><td>716</td></tr>
+      <tr class="summary"><td colspan="2">预定份数</td><td>600</td><td>1000</td></tr>
     </table>
   </div>
 
   <div class="toolbar">
     <a href="index.html">← 返回地图集</a>
   </div>
-
-  <script>
-    const STORAGE_PREFIX = 'meal923_';
-    document.querySelectorAll('.toggle-btn').forEach(btn => {
-      const key = STORAGE_PREFIX + btn.dataset.id;
-      let done = false;
-      try { done = localStorage.getItem(key) === '1'; } catch (e) {}
-      btn.classList.toggle('done', done);
-      btn.addEventListener('click', () => {
-        const nowDone = btn.classList.toggle('done');
-        try { localStorage.setItem(key, nowDone ? '1' : '0'); } catch (e) {}
-      });
-    });
-  </script>
 </body>
 </html>
