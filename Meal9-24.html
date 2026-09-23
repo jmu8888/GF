@@ -53,6 +53,12 @@
     background: #dbeafe;
     font-weight: 700;
   }
+  h2 {
+    font-size: 17px;
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
+    margin: 28px 0 12px;
+  }
   .toolbar {
     position: fixed;
     bottom: 16px;
@@ -84,27 +90,36 @@
     <h1>送餐安排（9/24）</h1>
 
     <table>
-      <tr><th>车号</th><th>单位</th><th>人数<br>(去重)</th><th>9/24<br>上午</th><th>9/24<br>下午</th><th>9/24<br>晚上</th></tr>
-      <tr><td class="label">DC1</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td><td>45</td><td></td></tr>
-      <tr><td class="label">DC2</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td><td>45</td><td></td></tr>
-      <tr><td class="label">DC3</td><td class="label">福建同乡会（陈思和）</td><td>45</td><td></td><td>45</td><td></td></tr>
-      <tr><td class="label">DC4</td><td class="label">同心基金会（王博）中国城</td><td>37</td><td></td><td>37</td><td>37</td></tr>
-      <tr><td class="label">DC5</td><td class="label">同心基金会（家园）</td><td>50</td><td>50</td><td></td><td></td></tr>
-      <tr><td class="label">DC6</td><td class="label">和统会（程云楷）中国城</td><td>40</td><td></td><td>40</td><td></td></tr>
-      <tr><td class="label">DC7</td><td class="label">和统会（龚留英）泰森老人公寓</td><td>34</td><td></td><td>34</td><td></td></tr>
-      <tr><td class="label">DC8</td><td class="label">东北同乡会（银环）中国城</td><td>35</td><td></td><td>35</td><td></td></tr>
-      <tr><td class="label">DC9</td><td class="label">美中经济文化（王孟琛）金梅活动中心</td><td>42</td><td></td><td>42</td><td></td></tr>
-      <tr><td class="label">DC10</td><td class="label">美中经济文化（王孟琛）富有餐厅</td><td>43</td><td></td><td>43</td><td></td></tr>
-      <tr><td class="label">DC11</td><td class="label">美中实验学校（夏祥波）安妮湖中心</td><td>24</td><td>24</td><td></td><td></td></tr>
-      <tr><td class="label">OR1</td><td class="label">俄勒冈州（靖东升）</td><td>50</td><td>50</td><td>50</td><td>50</td></tr>
-      <tr><td class="label">WA1</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td><td>45</td><td>45</td></tr>
-      <tr><td class="label">WA2</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td><td>45</td><td>45</td></tr>
-      <tr><td class="label">SF1</td><td class="label">旧金山（何孔华）</td><td>35</td><td>35</td><td>35</td><td>35</td></tr>
-      <tr><td class="label">PAD 1-10</td><td class="label">费城全美总商会（林明华）</td><td>500</td><td>500</td><td>500</td><td>500</td></tr>
-      <tr><td class="label">MD21</td><td class="label">平台班车点（MD）</td><td>600</td><td>134</td><td>138</td><td>107</td></tr>
-      <tr><td class="label">VA22</td><td class="label">平台班车点（VA）</td><td>244</td><td>27</td><td>100</td><td>40</td></tr>
-      <tr><td class="label">交通自理</td><td class="label">平台注册/社团报名(交通自理)</td><td>91</td><td>50</td><td>57</td><td>53</td></tr>
-      <tr class="summary"><td colspan="2">合计</td><td>2050</td><td>960</td><td>1336</td><td>912</td></tr>
+      <tr><th>车号</th><th>单位</th><th>9/24<br>上午</th><th>9/24<br>下午</th><th>9/24<br>晚上</th></tr>
+      <tr><td class="label">DC1</td><td class="label">福建同乡会（陈思和）</td><td></td><td>45</td><td></td></tr>
+      <tr><td class="label">DC2</td><td class="label">福建同乡会（陈思和）</td><td></td><td>45</td><td></td></tr>
+      <tr><td class="label">DC3</td><td class="label">福建同乡会（陈思和）</td><td></td><td>45</td><td></td></tr>
+      <tr><td class="label">DC4</td><td class="label">同心基金会（王博）中国城</td><td></td><td>37</td><td>37</td></tr>
+      <tr><td class="label">DC5</td><td class="label">同心基金会（家园）</td><td>50</td><td></td><td></td></tr>
+      <tr><td class="label">DC6</td><td class="label">和统会（程云楷）中国城</td><td></td><td>40</td><td></td></tr>
+      <tr><td class="label">DC7</td><td class="label">和统会（龚留英）泰森老人公寓</td><td></td><td>34</td><td></td></tr>
+      <tr><td class="label">DC8</td><td class="label">东北同乡会（银环）中国城</td><td></td><td>35</td><td></td></tr>
+      <tr><td class="label">DC9</td><td class="label">美中经济文化（王孟琛）金梅活动中心</td><td></td><td>42</td><td></td></tr>
+      <tr><td class="label">DC10</td><td class="label">美中经济文化（王孟琛）富有餐厅</td><td></td><td>43</td><td></td></tr>
+      <tr><td class="label">DC11</td><td class="label">美中实验学校（夏祥波）安妮湖中心</td><td>24</td><td></td><td></td></tr>
+      <tr><td class="label">OR1</td><td class="label">俄勒冈州（靖东升）</td><td>50</td><td>50</td><td>50</td></tr>
+      <tr><td class="label">WA1</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td><td>45</td></tr>
+      <tr><td class="label">WA2</td><td class="label">西雅图州（陈文琛）</td><td>45</td><td>45</td><td>45</td></tr>
+      <tr><td class="label">SF1</td><td class="label">旧金山（何孔华）</td><td>35</td><td>35</td><td>35</td></tr>
+      <tr><td class="label">PAD 1-10</td><td class="label">费城全美总商会（林明华）</td><td>500</td><td>500</td><td>500</td></tr>
+      <tr><td class="label">MD21</td><td class="label">平台班车点（MD）</td><td>134</td><td>138</td><td>107</td></tr>
+      <tr><td class="label">VA22</td><td class="label">平台班车点（VA）</td><td>27</td><td>100</td><td>40</td></tr>
+      <tr><td class="label">交通自理</td><td class="label">平台注册/社团报名(交通自理)</td><td>50</td><td>57</td><td>53</td></tr>
+      <tr class="summary"><td colspan="2">需求份数</td><td>960</td><td>1336</td><td>912</td></tr>
+      <tr class="summary"><td colspan="2">预定份数</td><td>1500</td><td>2000</td><td>2000</td></tr>
+    </table>
+
+    <h2>9/24 预定送餐</h2>
+    <table>
+      <tr><th>餐次</th><th>份数</th><th>送到时间</th><th>餐食内容</th></tr>
+      <tr><td>早餐</td><td>1500</td><td>06:15<br>(暂定)</td><td class="label">鸡蛋×2 + 牛奶 + 香蕉 + 面包 + 燕麦蜂蜜 Bar</td></tr>
+      <tr><td>午餐</td><td>2000</td><td>11:30<br>(确定)</td><td class="label">12 寸三明治 + 饮料 + 水果泥 + 巧克力坚果 + 花生酱饼干</td></tr>
+      <tr><td>晚餐</td><td>2000</td><td>17:00<br>(确定)</td><td class="label">肉夹馍×2 + 饮料 + 水果泥 + 坚果 + 薯片</td></tr>
     </table>
   </div>
 
