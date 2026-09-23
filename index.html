@@ -50,12 +50,18 @@
     left: 0;
     right: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: nowrap;
     gap: 8px;
-    padding: 0 8px;
+    padding: 4px 8px 8px;
     z-index: 10;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
+  .toolbar::-webkit-scrollbar { display: none; }
+  .toolbar a:first-child { margin-left: auto; }
+  .toolbar a:last-child { margin-right: auto; }
   .toolbar a {
     padding: 9px 20px;
     border-radius: 20px;
