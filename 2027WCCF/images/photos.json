@@ -1,0 +1,602 @@
+[
+{
+"id": "001-opening",
+"cat": "opening",
+"w": 7743,
+"h": 5162
+},
+{
+"id": "002-opening",
+"cat": "opening",
+"w": 7508,
+"h": 5032
+},
+{
+"id": "003-opening",
+"cat": "opening",
+"w": 8256,
+"h": 5504
+},
+{
+"id": "004-opening",
+"cat": "opening",
+"w": 8256,
+"h": 5504
+},
+{
+"id": "005-opening",
+"cat": "opening",
+"w": 7473,
+"h": 4958
+},
+{
+"id": "006-opening",
+"cat": "opening",
+"w": 7904,
+"h": 3945
+},
+{
+"id": "007-opening",
+"cat": "opening",
+"w": 8255,
+"h": 3808
+},
+{
+"id": "008-opening",
+"cat": "opening",
+"w": 1920,
+"h": 1280
+},
+{
+"id": "009-opening",
+"cat": "opening",
+"w": 2789,
+"h": 4739
+},
+{
+"id": "010-opening",
+"cat": "opening",
+"w": 5658,
+"h": 1883
+},
+{
+"id": "011-scene",
+"cat": "scene",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "012-scene",
+"cat": "scene",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "013-scene",
+"cat": "scene",
+"w": 4310,
+"h": 5287
+},
+{
+"id": "014-scene",
+"cat": "scene",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "015-scene",
+"cat": "scene",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "016-scene",
+"cat": "scene",
+"w": 5464,
+"h": 8192
+},
+{
+"id": "017-stage",
+"cat": "stage",
+"w": 1280,
+"h": 853
+},
+{
+"id": "018-stage",
+"cat": "stage",
+"w": 8256,
+"h": 5504
+},
+{
+"id": "019-stage",
+"cat": "stage",
+"w": 6383,
+"h": 4559
+},
+{
+"id": "020-stage",
+"cat": "stage",
+"w": 8256,
+"h": 5504
+},
+{
+"id": "021-stage",
+"cat": "stage",
+"w": 8256,
+"h": 5504
+},
+{
+"id": "022-stage",
+"cat": "stage",
+"w": 4899,
+"h": 3499
+},
+{
+"id": "023-stage",
+"cat": "stage",
+"w": 8256,
+"h": 5504
+},
+{
+"id": "024-stage",
+"cat": "stage",
+"w": 6192,
+"h": 4128
+},
+{
+"id": "025-stage",
+"cat": "stage",
+"w": 6192,
+"h": 4128
+},
+{
+"id": "026-stage",
+"cat": "stage",
+"w": 6192,
+"h": 4128
+},
+{
+"id": "027-stage",
+"cat": "stage",
+"w": 1920,
+"h": 1280
+},
+{
+"id": "028-stage",
+"cat": "stage",
+"w": 6720,
+"h": 4480
+},
+{
+"id": "029-stage",
+"cat": "stage",
+"w": 6720,
+"h": 4480
+},
+{
+"id": "030-stage",
+"cat": "stage",
+"w": 6720,
+"h": 4480
+},
+{
+"id": "031-stage",
+"cat": "stage",
+"w": 5881,
+"h": 1955
+},
+{
+"id": "032-stage",
+"cat": "stage",
+"w": 3000,
+"h": 2000
+},
+{
+"id": "033-stage",
+"cat": "stage",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "034-interactive",
+"cat": "interactive",
+"w": 3500,
+"h": 2381
+},
+{
+"id": "035-interactive",
+"cat": "interactive",
+"w": 4096,
+"h": 1904
+},
+{
+"id": "036-interactive",
+"cat": "interactive",
+"w": 4032,
+"h": 3024
+},
+{
+"id": "037-interactive",
+"cat": "interactive",
+"w": 9504,
+"h": 6336
+},
+{
+"id": "038-interactive",
+"cat": "interactive",
+"w": 7636,
+"h": 6336
+},
+{
+"id": "039-interactive",
+"cat": "interactive",
+"w": 2987,
+"h": 4480
+},
+{
+"id": "040-interactive",
+"cat": "interactive",
+"w": 6597,
+"h": 3711
+},
+{
+"id": "041-interactive",
+"cat": "interactive",
+"w": 3367,
+"h": 4209
+},
+{
+"id": "042-interactive",
+"cat": "interactive",
+"w": 4041,
+"h": 4041
+},
+{
+"id": "043-interactive",
+"cat": "interactive",
+"w": 3584,
+"h": 4480
+},
+{
+"id": "044-interactive",
+"cat": "interactive",
+"w": 6033,
+"h": 4022
+},
+{
+"id": "045-interactive",
+"cat": "interactive",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "046-interactive",
+"cat": "interactive",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "047-interactive",
+"cat": "interactive",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "048-interactive",
+"cat": "interactive",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "049-interactive",
+"cat": "interactive",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "050-parade",
+"cat": "parade",
+"w": 3259,
+"h": 3500
+},
+{
+"id": "051-parade",
+"cat": "parade",
+"w": 3844,
+"h": 2160
+},
+{
+"id": "052-parade",
+"cat": "parade",
+"w": 4032,
+"h": 3024
+},
+{
+"id": "053-parade",
+"cat": "parade",
+"w": 4608,
+"h": 3373
+},
+{
+"id": "054-parade",
+"cat": "parade",
+"w": 6218,
+"h": 4145
+},
+{
+"id": "055-parade",
+"cat": "parade",
+"w": 5178,
+"h": 3650
+},
+{
+"id": "056-parade",
+"cat": "parade",
+"w": 2601,
+"h": 3578
+},
+{
+"id": "057-parade",
+"cat": "parade",
+"w": 6720,
+"h": 4480
+},
+{
+"id": "058-parade",
+"cat": "parade",
+"w": 6410,
+"h": 3606
+},
+{
+"id": "059-parade",
+"cat": "parade",
+"w": 6720,
+"h": 4480
+},
+{
+"id": "060-parade",
+"cat": "parade",
+"w": 3829,
+"h": 2005
+},
+{
+"id": "061-parade",
+"cat": "parade",
+"w": 4080,
+"h": 3072
+},
+{
+"id": "062-parade",
+"cat": "parade",
+"w": 10734,
+"h": 3824
+},
+{
+"id": "063-parade",
+"cat": "parade",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "064-parade",
+"cat": "parade",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "065-parade",
+"cat": "parade",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "066-culture",
+"cat": "culture",
+"w": 5280,
+"h": 6116
+},
+{
+"id": "067-culture",
+"cat": "culture",
+"w": 8256,
+"h": 5504
+},
+{
+"id": "068-culture",
+"cat": "culture",
+"w": 4032,
+"h": 3024
+},
+{
+"id": "069-culture",
+"cat": "culture",
+"w": 6720,
+"h": 4480
+},
+{
+"id": "070-culture",
+"cat": "culture",
+"w": 5984,
+"h": 4480
+},
+{
+"id": "071-culture",
+"cat": "culture",
+"w": 6720,
+"h": 4480
+},
+{
+"id": "072-culture",
+"cat": "culture",
+"w": 4080,
+"h": 3072
+},
+{
+"id": "073-culture",
+"cat": "culture",
+"w": 2736,
+"h": 3730
+},
+{
+"id": "074-culture",
+"cat": "culture",
+"w": 2688,
+"h": 3794
+},
+{
+"id": "075-culture",
+"cat": "culture",
+"w": 7671,
+"h": 5117
+},
+{
+"id": "076-culture",
+"cat": "culture",
+"w": 5464,
+"h": 8192
+},
+{
+"id": "077-culture",
+"cat": "culture",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "078-culture",
+"cat": "culture",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "079-food",
+"cat": "food",
+"w": 3500,
+"h": 3014
+},
+{
+"id": "080-food",
+"cat": "food",
+"w": 6144,
+"h": 8192
+},
+{
+"id": "081-food",
+"cat": "food",
+"w": 4032,
+"h": 3024
+},
+{
+"id": "082-food",
+"cat": "food",
+"w": 4032,
+"h": 3024
+},
+{
+"id": "083-food",
+"cat": "food",
+"w": 5888,
+"h": 4480
+},
+{
+"id": "084-food",
+"cat": "food",
+"w": 6677,
+"h": 3756
+},
+{
+"id": "085-food",
+"cat": "food",
+"w": 6720,
+"h": 3780
+},
+{
+"id": "086-food",
+"cat": "food",
+"w": 4048,
+"h": 3036
+},
+{
+"id": "087-roaming",
+"cat": "roaming",
+"w": 4080,
+"h": 3064
+},
+{
+"id": "088-roaming",
+"cat": "roaming",
+"w": 7000,
+"h": 5436
+},
+{
+"id": "089-roaming",
+"cat": "roaming",
+"w": 6868,
+"h": 5544
+},
+{
+"id": "090-roaming",
+"cat": "roaming",
+"w": 7988,
+"h": 5592
+},
+{
+"id": "091-roaming",
+"cat": "roaming",
+"w": 3744,
+"h": 2252
+},
+{
+"id": "092-roaming",
+"cat": "roaming",
+"w": 4032,
+"h": 3024
+},
+{
+"id": "093-roaming",
+"cat": "roaming",
+"w": 4032,
+"h": 3024
+},
+{
+"id": "094-ambassador",
+"cat": "ambassador",
+"w": 3500,
+"h": 2486
+},
+{
+"id": "095-ambassador",
+"cat": "ambassador",
+"w": 1320,
+"h": 2322
+},
+{
+"id": "096-ambassador",
+"cat": "ambassador",
+"w": 8191,
+"h": 5203
+},
+{
+"id": "097-ambassador",
+"cat": "ambassador",
+"w": 5737,
+"h": 3334
+},
+{
+"id": "098-ambassador",
+"cat": "ambassador",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "099-ambassador",
+"cat": "ambassador",
+"w": 8192,
+"h": 5464
+},
+{
+"id": "100-ambassador",
+"cat": "ambassador",
+"w": 4023,
+"h": 2991
+}
+]
